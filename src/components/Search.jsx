@@ -4,22 +4,19 @@ import { browserHistory as history } from 'react-router';
 class Search extends React.Component {
     constructor(props) {
         super(props);
-
-        // Why do we need to do this?? Make sure you understand!!!
         this._handleSubmit = this._handleSubmit.bind(this);
     }
     _handleSubmit(e) {
         e.preventDefault();
         history.push(`/user/${this.refs.userInput.value}`)
     }
-
     render() {
         return (
             <div className="search-page">
-                <h2>Enter a GitHub username</h2>
+                <p>Masukan Username GitHub</p>
                 <form onSubmit={this._handleSubmit}>
-                    <input ref="userInput" className="search-page__input" type="text" />
-                    <button className="search-page__button">Search</button>
+                    <input ref="userInput" className="search-page__input" type="text" value="facebook" />
+                    <button className="search-page__button">Cari</button>
                 </form>
             </div>
         );
