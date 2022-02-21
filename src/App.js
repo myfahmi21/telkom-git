@@ -8,16 +8,13 @@ import App from './components/App';
 import Search from './components/Search';
 import User from './components/User';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  );
-}
+const routes = (
+  <Router history={browserHistory}>
+      <Route path="/" component={App}>
+          <IndexRoute component={Search}/>
+          <Route path="user/:username" component={User}/>
+      </Route>
+  </Router>
+);
 
-export default App;
+ReactDOM.render(routes, document.getElementById('root'));
